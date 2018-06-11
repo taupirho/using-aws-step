@@ -5,6 +5,7 @@ service called Amazon Step Functions. There are a way to coordinate the the flow
 work flow toolset and state machines. Step functions normally call lambda functions but they differ in that they can be long 
 running processes (up to a  year) rather than the 5 minute max run time of a regular AWS lambda function. 
 
-This will be a very simple example. We will have 1 step function that will print out the text "Hello World". We will 
-have two lambda functions, one called by the step function to print out the # Hello World string and one that 
+This will start off as a very simple example but I hope to increase its complexity over time to do something thats 
+actually useful. Initially we will have 1 step function that will print out the text "Hello World". We will 
+have two lambda functions, one called by the step function to print out the Hello World string and one that 
 will call the step function itself.
