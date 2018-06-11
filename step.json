@@ -1,0 +1,11 @@
+{
+  "Comment": "A simple aws step function that calls a lambda",
+  "StartAt": "HelloWorld",
+  "States": {
+    "HelloWorld": {
+      "Type": "Task",
+      "Resource": "arn:aws:lambda:eu-west-2:XXXXXXXXXXXX:function:printHello",
+      "End": true
+    }
+  }
+}
