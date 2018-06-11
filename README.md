@@ -9,3 +9,7 @@ This will start off as a very simple example but I hope to increase its complexi
 actually useful. Initially we will have 1 step function in JSON format that will print out the text "Hello World". We will 
 create two lambda python functions, one called by the step function to print out the Hello World string and one that 
 will call the step function itself.
+
+In terms of IAM roles for this we just used the default lambda_basic_exection for the lambda that is called by the step function.
+For the lambda function that calls the step function we created a new IAM role with two built-in policies:-  CloudWatchLogsFullAccess 
+and AwsStepFunctionsFullAccess
