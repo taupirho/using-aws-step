@@ -6,5 +6,5 @@ work flow toolset and state machines. Step functions normally call lambda functi
 running processes (up to a  year) rather than the 5 minute max run time of a regular AWS lambda function. 
 
 This will be a very simple example. We will have 1 step function that will print out the text "Hello World". We will 
-have two lambda functions, one called by the step function to print out the #Hello World# string and one that 
+have two lambda functions, one called by the step function to print out the # Hello World string and one that 
 will call the step function itself.
