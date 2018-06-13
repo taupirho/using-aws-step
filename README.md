@@ -12,7 +12,7 @@ some reason neither of these conditions exist we notify the user that a problem 
 the following:
 
 1) A step function state machine
-2) A lambda function (RunStep) to call the start state of the state machine (there are other ways to do this too)
+2) A lambda function (startStep) to call the start state of the state machine (there are other ways to do this too)
 
 3) A lambda function (checkSize) that gets the size in bytes of the required file. We set environment variables to hold the target 
 bucket and filename and read these from within our lambda. It returns this value into the $ path variable.
