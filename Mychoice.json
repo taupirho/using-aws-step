@@ -1,0 +1,50 @@
+{
+  "Comment": "An example of the Amazon States Language using a choice state.",
+  "StartAt": "CheckFileSize",
+  "States": {
+    "CheckFileSize": {
+      "Type": "Task",
+      "Resource": "arn:aws:lambda:eu-west-2:696353118745:function:checkSize",
+      "Next": "ChoiceState"
+    },
+    "ChoiceState": {
+      "Type" : "Choice",
+      "Choices": [
+        {
+          "Variable": "$",
+          "NumericGreaterThan": 2000000,
+          "Next": "ProcessFile"
+        },
+       {
+          "Variable": "$",
+          "NumericLessThan": 2000000,
+          "Next": "NotifyFileTooSmall"
+        }
+      ],
+      "Default": "DefaultState"
+    },
+
+    "ProcessFile": {
+      "Type" : "Task",
+      "Resource": "arn:aws:lambda:eu-west-2:696353118745:function:ProcessFile",
+      "Next": "NotifyOk"
+    },
+      
+    "DefaultState": {
+      "Type": "Fail",
+      "Error": "DefaultStateError",
+      "Cause": "No Matches!"
+    },
+
+    "NotifyOk": {
+      "Type": "Pass",
+      "Result" : {"Message": "File processed OK"},
+      "End": true
+    },
+     "NotifyFileTooSmall": {
+      "Type": "Pass",
+       "Result": {"Message":"File not big enough" },
+      "End": true
+    }
+  }
+}
