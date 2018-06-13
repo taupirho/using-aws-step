@@ -12,8 +12,10 @@ some reason neither of these conditions exist we notify the user that a problem 
 
 1) A step function state machine
 2) A lambda function (RunStep) to call the start state of the state machine (there are other ways to do this too)
-3) A lambda function (checkSize) that gets the size in bytes of the required file. It returns this value into the $ path variable.
-   We set environment variables to hold the target bucket and filename and read these from our lambda
+
+3) A lambda function (checkSize) that gets the size in bytes of the required file. We set environment variables to hold the target 
+bucket and filename and read these from within our lambda. It returns this value into the $ path variable.
+   
 4) A lambda function (ProcessFile) which processes the file if it is of sufficient size
 
 
@@ -21,6 +23,10 @@ In terms of IAM roles for this we just used the default lambda_basic_exection fo
 For the lambda function that calls the step function we created a new IAM role with two built-in policies:-  CloudWatchLogsFullAccess 
 and AwsStepFunctionsFullAccess
 
-A representation of the state machine is shown below
+A representation of the state machine is shown below.
 
 ![AWS State Machine](https://github.com/taupirho/aws-step-functions/blob/master/sm1.png)
+
+It's pretty simpla and the only things I haven't talked about are the NotifyOk and NotifyNotOk nodes. These are called PASS states. 
+They are basically do nothing or No Op states and simply pass their input to their output. They are just used to end our state machine 
+run and output a message. The DefaultState is a catch all that deals with the scenario if for whatever reason we can't get the file size  
