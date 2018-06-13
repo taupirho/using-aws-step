@@ -20,3 +20,7 @@ some reason neither of these conditions exist we notify the user that a problem 
 In terms of IAM roles for this we just used the default lambda_basic_exection for the lambdas that are called by the step function.
 For the lambda function that calls the step function we created a new IAM role with two built-in policies:-  CloudWatchLogsFullAccess 
 and AwsStepFunctionsFullAccess
+
+A representation of the state machine is shown below
+
+![AWS State Machine](https://github.com/taupirho/aws-step-functions/blob/master/sm1.png)
