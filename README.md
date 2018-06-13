@@ -12,7 +12,8 @@ some reason neither of these conditions exist we notify the user that a problem 
 
 1) A step function state machine
 2) A lambda function (RunStep) to call the start state of the state machine (there are other ways to do this too)
-3) A lmabda function (checkSize) that checks the size in bytes of the required file
+3) A lambda function (checkSize) that gets the size in bytes of the required file. It returns this value into the $ path variable.
+   We set environment variables to hold the target bucket and filename and read these from our lambda
 4) A lambda function (ProcessFile) which processes the file if it is of sufficient size
 
 
