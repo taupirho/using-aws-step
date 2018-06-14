@@ -4,7 +4,7 @@
   "States": {
     "CheckFileSize": {
       "Type": "Task",
-      "Resource": "arn:aws:lambda:eu-west-2:696353118745:function:checkSize",
+      "Resource": "arn:aws:lambda:eu-west-2:XXXXXXXXXXXX:function:checkSize",
       "Next": "ChoiceState"
     },
     "ChoiceState": {
@@ -26,7 +26,7 @@
 
     "ProcessFile": {
       "Type" : "Task",
-      "Resource": "arn:aws:lambda:eu-west-2:696353118745:function:ProcessFile",
+      "Resource": "arn:aws:lambda:eu-west-2:XXXXXXXXXXXX:function:ProcessFile",
       "Next": "NotifyOk"
     },
       
